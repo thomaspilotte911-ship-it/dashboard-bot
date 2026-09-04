@@ -1,0 +1,8 @@
+{
+  "prefix": "!",
+  "welcomeChannelId": "",
+  "welcomeMessage": "Bienvenue {user} sur le serveur ! \ud83c\udf89",
+  "embedColor": "#5865F2",
+  "botStatus": "En ligne | /help",
+  "logCommandUsage": true
+}

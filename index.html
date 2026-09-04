@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard du Bot</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Écran de connexion -->
+  <div id="login-screen" class="screen">
+    <form id="login-form" class="login-card">
+      <div class="logo">🤖</div>
+      <h1>Connexion au dashboard</h1>
+      <p class="subtitle">Entre le token du dashboard pour continuer</p>
+      <input type="password" id="login-token" placeholder="Token du dashboard" autocomplete="off" required />
+      <button type="submit">Se connecter</button>
+      <p id="login-error" class="error-msg"></p>
+    </form>
+  </div>
+
+  <!-- Dashboard principal -->
+  <div id="dashboard-screen" class="screen hidden">
+    <header class="topbar">
+      <div class="brand">🤖 <span>Bot Dashboard</span></div>
+      <div class="status-pill" id="status-pill">
+        <span class="dot"></span> <span id="status-text">—</span>
+      </div>
+      <button id="logout-btn" class="ghost-btn">Déconnexion</button>
+    </header>
+
+    <main class="content">
+      <section class="cards">
+        <div class="card">
+          <div class="card-label">Serveurs</div>
+          <div class="card-value" id="stat-guilds">—</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Utilisateurs</div>
+          <div class="card-value" id="stat-users">—</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Commandes exécutées</div>
+          <div class="card-value" id="stat-commands">—</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Uptime</div>
+          <div class="card-value" id="stat-uptime">—</div>
+        </div>
+      </section>
+
+      <section class="panels">
+        <div class="panel">
+          <h2>Configuration</h2>
+          <form id="config-form" class="config-form">
+            <label>
+              Préfixe des commandes
+              <input type="text" name="prefix" maxlength="5" />
+            </label>
+            <label>
+              ID du salon de bienvenue
+              <input type="text" name="welcomeChannelId" placeholder="123456789012345678" />
+            </label>
+            <label>
+              Message de bienvenue <span class="hint">(utilise {user} pour mentionner le membre)</span>
+              <textarea name="welcomeMessage" rows="2"></textarea>
+            </label>
+            <label>
+              Couleur des embeds
+              <input type="color" name="embedColor" />
+            </label>
+            <label>
+              Statut affiché par le bot
+              <input type="text" name="botStatus" />
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="logCommandUsage" />
+              Journaliser l'utilisation des commandes
+            </label>
+            <button type="submit">Enregistrer</button>
+            <p id="config-saved" class="saved-msg"></p>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2>Logs en direct</h2>
+          <div id="logs" class="logs"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
